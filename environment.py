@@ -1,6 +1,5 @@
 # Final Code, all chnages made, everything works
 # V6.0
-# This code is for compare constrast 
 import numpy as np
 import math
 from scipy.stats import nakagami
