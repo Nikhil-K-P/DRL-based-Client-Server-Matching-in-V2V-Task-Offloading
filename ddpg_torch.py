@@ -3,7 +3,6 @@ import numpy as np
 import torch as T
 import torch.nn.functional as F
 from networks import ActorNetwork, CriticNetwork
-#from noise import OUActionNoise
 from buffer import ReplayBuffer
 
 class Agent():
@@ -21,9 +20,7 @@ class Agent():
         self.min_epsilon=0.1
 
         self.memory = ReplayBuffer(max_size, input_dims, n_actions)
-
-        #self.noise = OUActionNoise(mu=np.zeros(n_actions))
-
+                     
         self.actor = ActorNetwork(alpha, input_dims, fc1_dims, fc2_dims,
                                 n_actions=n_actions, name='actor')
         self.critic = CriticNetwork(beta, input_dims, fc1_dims, fc2_dims,
