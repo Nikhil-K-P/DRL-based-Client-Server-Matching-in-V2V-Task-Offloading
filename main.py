@@ -16,7 +16,7 @@ if __name__ == '__main__':
 
     best_score = 1
     score_history = []
-    avg_scores = []  # To store average scores from the beginning
+    avg_scores = []  
 
     for i in range(n_games):
         observation = env.reset()
