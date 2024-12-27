@@ -1,5 +1,5 @@
 import numpy as np
-from ddpg_torch import Agent
+from ddpg import Agent
 from environment import Environment
 from utils import plot_learning_curve
 
