@@ -1,5 +1,3 @@
-# Final Code, all chnages made, everything works
-# V6.0
 import numpy as np
 import math
 from scipy.stats import nakagami
@@ -50,14 +48,14 @@ class Environment:
         self.network.path_loss_matrix()
 
         #generating set of clients
-        # self.network.activity()
+       # self.network.activity()
 
         self.network.activity_history = self.network.active + 0.001
         self.network.activity_history_normalized=self.network.active + 0.001
 
         #count variable to count no of clients
-        # count=np.count_nonzero(self.network.active == 1)
-        
+        #count=np.count_nonzero(self.network.active == 1)
+
         while not self.request_queue:
             self.network.activity()
             count=np.count_nonzero(self.network.active == 1)
@@ -83,18 +81,11 @@ class Environment:
 
         return self.curr_state
 
-    def step(self,action=None):
+    def step(self,action):
 
         Client_ID = int(self.request_queue[0][0])
         print(Client_ID)
-
-
-        path_losses = self.network.path_loss_normalized[Client_ID]
-        Server_ID = np.argmin(path_losses)
-        print("Server ID: ", Server_ID)
-
-
-        # Server_ID = int(action*9) # Resizing action
+        Server_ID = int(action*(self.N-1)) # Resizing action
         No_Clients = int(self.curr_state[0]*self.N)
         task_data_size = self.curr_state[1]
         task_computation_cycles = self.curr_state[2]
